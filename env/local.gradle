@@ -1,0 +1,17 @@
+task fujiqdb {
+  group "env"
+
+  doFirst {
+    flyway {
+      url = "jdbc:mysql://localhost:3306/?characterEncoding=UTF-8"
+      schemas = ["fujiqdb"]
+      user = "root"
+      password = "mysql"
+      locations = [
+              "filesystem:${project.projectDir}/src/main/resources/fujiqdb/migration",
+              "filesystem:${project.projectDir}/src/main/resources/fujiqdb/testdata"
+      ]
+    }
+  }
+}
+

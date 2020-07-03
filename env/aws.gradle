@@ -1,0 +1,11 @@
+task fujiqdb {
+  group "env"
+
+  doFirst {
+    flyway {
+      locations = [
+              "filesystem:${project.projectDir}/src/main/resources/fujiqdb/migration"
+      ]
+    }
+  }
+}
